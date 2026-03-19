@@ -1,56 +1,12 @@
 # 🧸 Toy Store
 
 A responsive toy store web application built with **Angular 21** and **Angular Material**.  
-The app allows users to browse toys, search and filter products, view toy details, rate products, manage their account, and track cart and order history.
-
----
 
 ## ✨ Features
 
 - responsive design for desktop and mobile devices
 - homepage with **Top 10 toys for girls** and **Top 10 toys for boys**
-- shop page with:
-  - search by name or description
-  - filtering by toy type
-  - filtering by children group
-  - filtering by age
-  - filtering by minimum rating
-  - filtering by price range
-  - sorting options
-- toy details page with:
-  - full toy information
-  - rating section
-  - customer reviews
-  - buy action
-- user authentication:
-  - login
-  - registration
-- account page:
-  - update personal information
-  - change password
-  - recommended toys
-- cart page:
-  - reserved items
-  - total amount
-  - pay action
-- order management:
-  - order history
-  - delivered orders
-  - cancelled items
-- about page with embedded map and location
-- mobile navigation menu and mobile filter support
-
----
-
-## ## Tech Stack
-
-- **Angular 21**
-- **TypeScript**
-- **Angular Material**
-- **HTML**
-- **CSS**
-- **REST API**
-
+- 
 ### API
 This project uses the external API:
 
@@ -58,126 +14,31 @@ This project uses the external API:
 
 ---
 
-## 🏠 Home Page
-
-The home page displays featured toy collections, including:
-
-- **Top 10 toys for girls**
+## 🏠 **Top 10 toys for girls**
 - **Top 10 toys for boys**
 
-This gives users a quick overview of popular toy categories in a visually friendly layout.
-
----
+<img width="1920" height="891" alt="Screenshot (432)" src="https://github.com/user-attachments/assets/8202818c-a210-46e7-9ebd-4af6277f33c4" />
+<img width="384" height="719" alt="Screenshot (442)" src="https://github.com/user-attachments/assets/f9e109cb-a7a9-49a2-b37c-2b35cb4a88bd" />
 
 ## 🛍️ Shop Page
+<img width="1920" height="882" alt="Screenshot (433)" src="https://github.com/user-attachments/assets/20a08538-850c-4b3a-a074-ba621fb816ec" />
+<img width="429" height="775" alt="Screenshot (443)" src="https://github.com/user-attachments/assets/b1ffd564-5e6e-4d54-a9fd-c3656493934a" />
+<img width="370" height="712" alt="Screenshot (445)" src="https://github.com/user-attachments/assets/43526e4c-f081-4efe-b64f-4bf167217c34" />
 
-The shop page is the main product browsing area of the application.
 
-Users can:
-
-- search toys by name or description
-- filter toys by category and attributes
-- filter by rating and price
-- sort products
-- open individual product details
-- add toys to cart
-- add toys to favorites
-
----
 
 ## 📄 Product Details
-
-Each toy has its own details page where users can view:
-
-- toy image
-- name
-- price
-- description
-- age group
-- toy type
-- date of creation
-- rating
-- reviews from other users
-
-Users can also rate a product and buy it directly from this page.
-
----
+<img width="1920" height="904" alt="Screenshot (439)" src="https://github.com/user-attachments/assets/8c455b50-5e0f-47da-86e8-4cb0981542dc" />
 
 ## 👤 Authentication
 
-The application includes authentication pages for:
 
-- **Login**
-- **Registration**
+<img width="1920" height="885" alt="Screenshot (435)" src="https://github.com/user-attachments/assets/6c80c0c1-80b4-4dc4-a68c-cef8ab78d984" />
+<img width="1920" height="895" alt="Screenshot (436)" src="https://github.com/user-attachments/assets/1330ba03-753b-4ab0-a12e-2d36cf4438c4" />
 
-The registration form includes fields such as:
-
-- first name
-- last name
-- phone
-- address
-- favorite category
-- email
-- password
-
----
-
-## ⚙️ Account Page
-
-After logging in, users can access their personal account page.
-
-Available features:
-
-- view and edit profile information
-- change password
-- view recommended toys based on preferences
-
----
 
 ## 🛒 Cart and Orders
-
-The cart page allows users to:
-
-- view reserved toys
-- see quantities and prices
-- check the total amount
-- proceed to payment
-
-Users can also track:
-
-- previous orders
-- order status
-- cancelled items
-
----
-
-## 📍 About Page
-
-The about page includes:
-
-- short project/store information
-- embedded Google Map
-- store location
-
----
-
-## 📱 Responsive Design
-
-This project is fully responsive and includes:
-
-- mobile-friendly layout
-- collapsible mobile navigation
-- mobile filter menu
-- responsive cards and forms
-
----
-
-## 🚀 Getting Started
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/your-repo-name.git
+<img width="1920" height="876" alt="Screenshot (440)" src="https://github.com/user-attachments/assets/0e87dbf6-1d08-43a6-a84e-19534ad281ef" />
 
 # Toy
 
