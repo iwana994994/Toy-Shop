@@ -12,6 +12,7 @@ This project uses the external API:
 ## 🏠 **Top 10 toys for girls**
 
 <img width="1920" height="891" alt="Screenshot (432)" src="https://github.com/user-attachments/assets/8202818c-a210-46e7-9ebd-4af6277f33c4" />
+
 ## 🏠  **Top 10 toys for boys**
 <img width="384" height="719" alt="Screenshot (442)" src="https://github.com/user-attachments/assets/f9e109cb-a7a9-49a2-b37c-2b35cb4a88bd" />
 
