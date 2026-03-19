@@ -2,11 +2,6 @@
 
 A responsive toy store web application built with **Angular 21** and **Angular Material**.  
 
-## ✨ Features
-
-- responsive design for desktop and mobile devices
-- homepage with **Top 10 toys for girls** and **Top 10 toys for boys**
-- 
 ### API
 This project uses the external API:
 
