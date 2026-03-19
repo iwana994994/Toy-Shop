@@ -1,0 +1,74 @@
+@if (toys()) {
+  
+
+<div class="list-component">
+   
+
+
+
+      <h2>Top 10 igračaka za devojčice</h2>
+      <div class="slider-wrapper">
+        <button mat-icon-button class="arrow left" (click)="scrollLeft(girlsSlider)">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+
+        <div class="toy-slider" #girlsSlider>
+          @for (toy of girlsToys(); track toy.toyId) {
+            <mat-card appearance="outlined" class="toy-card" [routerLink]="['/product', toy.toyId]">
+              <img
+                mat-card-image
+                [src]="utils.generateToyImage(toy.toyId)"
+                [alt]="toy.name"
+              >
+
+              <mat-card-content>
+                <h3>{{ toy.name }}</h3>
+                <p>{{ toy.description }}</p>
+                <p>{{ toy.price }} din</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+
+        <button mat-icon-button class="arrow right" (click)="scrollRight(girlsSlider)">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+
+      <h2>Top 10 igračaka za dečake</h2>
+      <div class="slider-wrapper">
+        <button mat-icon-button class="arrow left" (click)="scrollLeft(boysSlider)">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+
+        <div class="toy-slider" #boysSlider>
+          @for (toy of boysToys(); track toy.toyId) {
+            <mat-card appearance="outlined" class="toy-card" [routerLink]="['/product', toy.toyId]">
+              <img
+                mat-card-image
+                [src]="utils.generateToyImage(toy.toyId)"
+                [alt]="toy.name"
+              >
+
+              <mat-card-content>
+                <h3>{{ toy.name }}</h3>
+               
+                <p>{{ toy.description }}</p>
+                <p><strong>{{ toy.price }} din</strong></p>
+              </mat-card-content>
+
+            </mat-card>
+          }
+        </div>
+
+        <button mat-icon-button class="arrow right" (click)="scrollRight(boysSlider)">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+
+  </div>
+  }
+ @else{
+  <div class="loading">
+  <p><strong>Loading product</strong></p><mat-spinner></mat-spinner>
+</div>}

@@ -1,0 +1,63 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+
+a {
+    font-size: 18px;
+  
+  
+}
+
+mat-toolbar {
+  background-color: var(--mat-sys-primary-container);
+ 
+}
+mat-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+.footer{
+    padding-top: 1em;
+    text-align: center;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  mat-toolbar {
+    padding: 8px 12px;
+    height: auto;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .logo-link {
+    font-size: 16px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .footer {
+    padding: 1em 0.5em;
+    font-size: 12px;
+    text-align: center;
+  }
+}

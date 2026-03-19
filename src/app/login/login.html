@@ -1,0 +1,125 @@
+<mat-tab-group class="tab">
+
+  <mat-tab label="Login">
+    <mat-card class="login">
+      <mat-card-header class="title">
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="form">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              class="label"
+              [(ngModel)]="user.email"
+              name="loginEmail"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              class="label"
+              [(ngModel)]="user.password"
+              name="loginPassword"
+            />
+          </mat-form-field>
+        </div>
+
+        <mat-card-actions class="button">
+          <button matButton (click)="doLogin()">Login</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Registration">
+    <mat-card class="registration">
+      <mat-card-header class="title">
+        <mat-card-title>Registration</mat-card-title>
+      </mat-card-header>
+  <mat-card-content>
+        <div>
+            <mat-form-field class="first">
+                <mat-label>First Name</mat-label>
+                <input matInput 
+                type="text"
+                 [(ngModel)]="user.firstName">
+            </mat-form-field>
+            <mat-form-field class="first">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text"
+                 [(ngModel)]="user.lastName">
+            </mat-form-field>
+           <mat-form-field class="full-input">
+  <mat-label >Phone</mat-label>
+  <input 
+    matInput
+    type="text"
+    [(ngModel)]="user.phone"
+    name="phone"
+    placeholder="0631234567"
+  />
+ 
+  <mat-hint >Format: 06xxxxxxxx</mat-hint>
+</mat-form-field>
+            <mat-form-field class="full-input">
+                <mat-label>Address</mat-label>
+                <input matInput type="text" [(ngModel)]="user.address">
+            </mat-form-field>
+            <mat-form-field class="full-input">
+            <mat-label>Favorite Category</mat-label>
+            <mat-select
+              [(ngModel)]="favoriteCategory"
+              name="favoriteCategory"
+            >
+              @for (category of categories; track category.typeId) {
+                <mat-option [value]="category.name">{{ category.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+            <mat-form-field  class="full-input">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" [(ngModel)]="user.email" id="email">
+            </mat-form-field>
+            <mat-form-field class="first">
+  <mat-label>Password</mat-label>
+  <input
+    matInput
+    type="password"
+    [(ngModel)]="user.password"
+    name="password"
+    minlength="6"
+  />
+  <mat-hint>
+    minimalna duzina: {{ user.password?.length || 0 }} / 6
+  </mat-hint>
+</mat-form-field>
+            <mat-form-field class="first">
+                <mat-label>Repeat Password</mat-label>
+                <input matInput type="password" [(ngModel)]="repeat">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+
+        <mat-card-actions class="button">
+          <button
+            matButton
+            (click)="doRegistration()"
+           
+            
+          >
+            Registration
+          </button>
+        </mat-card-actions>
+    
+    </mat-card>
+  </mat-tab>
+
+</mat-tab-group>

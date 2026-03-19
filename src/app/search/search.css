@@ -1,0 +1,22 @@
+form {
+
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1em;
+}
+
+form mat-form-field {
+  min-width: 200px;
+  margin: 0.2em;
+}
+
+form button {
+  padding: 1em;
+  margin: 0.2em;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 550;
+  cursor: pointer;
+}

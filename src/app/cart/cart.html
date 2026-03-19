@@ -1,0 +1,198 @@
+@if (cart.length == 0) {
+  <div class="empty-cart">
+    <mat-icon>shopping_cart_off</mat-icon>
+     
+   
+    <p>Your cart is empty</p>
+  </div>
+}
+   @if (cart.length > 0) {
+
+<mat-card class="cart-card">
+  <mat-card-header>
+    <mat-card-title>🛒 Your Cart</mat-card-title>
+    <mat-card-subtitle>Reserved toys</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+
+      <table mat-table [dataSource]="cart" class="mat-elevation-z2 cart-table">
+
+ <ng-container matColumnDef="picture">
+          <th mat-header-cell *matHeaderCellDef>Picture</th>
+          <td mat-cell *matCellDef="let item">
+            <img
+              [src]="utils.generateToyImage(item.id)"
+              [alt]="item.name"
+ 
+            />
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let item">{{ item.price }} RSD</td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let item">
+            <input
+              type="number"
+              [(ngModel)]="item.quantity"
+              min="1"
+              (change)="loadCart()"
+            >
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let item">
+            <span class="status-badge">{{ item.status }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>Delete</th>
+          <td mat-cell *matCellDef="let item">
+            <button mat-button style="border-radius:2em" (click)="cancelItem(item.id)">
+              X
+            </button>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <div class="total-box">
+        <h3>Total amount:</h3>
+        <p>{{ getTotalAmount() }} RSD</p>
+      </div>
+
+      <div class="button">
+        <button matButton class="button-buy" (click)="payBill()">Pay</button>
+      </div>
+    
+  </mat-card-content>
+</mat-card>
+    }
+
+ @if (orders.length > 0) {
+<mat-card class="cart-card" >
+  <mat-card-header>
+    <mat-card-title>📦 Your Orders</mat-card-title>
+    <mat-card-subtitle>History of orders</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+   
+   
+      <table mat-table [dataSource]="orders" class="mat-elevation-z2 cart-table">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Order ID</th>
+          <td mat-cell *matCellDef="let order">
+            {{ order.id }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let order">
+            {{ order.date.slice(0,10).split("-").reverse().join(".") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalAmount">
+          <th mat-header-cell *matHeaderCellDef>Total</th>
+          <td mat-cell *matCellDef="let order">
+            {{ order.totalAmount }} RSD
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="items">
+          <th mat-header-cell *matHeaderCellDef>Items</th>
+          <td mat-cell *matCellDef="let order">
+            @for (item of order.items; track item.id) {
+              <p>
+                {{ item.name }} - {{ item.quantity }} x {{ item.price }} RSD
+              </p>
+            }
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let order">
+            <span class="status-badge">{{ order.status  }}</span>
+          </td>
+        </ng-container>
+
+           <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>Delete</th>
+          <td mat-cell *matCellDef="let order">
+            <button mat-button style="border-radius:2em" (click)="deleteItem(order.id)">
+              X
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="orderDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: orderDisplayedColumns;"></tr>
+      </table>
+    
+    
+  </mat-card-content>
+    
+  
+</mat-card>
+} 
+     @if (cancelledItems.length > 0) {
+<mat-card class="cart-card">
+  <mat-card-header>
+    <mat-card-title>❌ Cancelled Items</mat-card-title>
+    <mat-card-subtitle>Items removed from cart</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+   
+      <table mat-table [dataSource]="cancelledItems" class="mat-elevation-z2 cart-table">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let item">{{ item.price }} RSD</td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let item">{{ item.quantity }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let item">{{ item.cancelStatus }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="cancelledAt">
+          <th mat-header-cell *matHeaderCellDef>Cancelled At</th>
+          <td mat-cell *matCellDef="let item">{{ item.cancelledAt.slice(0,10).split("-").reverse().join(".")}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="cancelledDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: cancelledDisplayedColumns;"></tr>
+      </table>
+    
+  </mat-card-content>
+</mat-card>
+     }

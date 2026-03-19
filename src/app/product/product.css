@@ -1,0 +1,90 @@
+.product-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.product-card {
+  width: 550px;
+  padding: 16px;
+  height: 50%;
+}
+
+.product-card img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+  height: 50%;
+}
+
+
+
+.product-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.product-description mat-card-content p {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.buy {
+  display: flex;
+  justify-content:space-between;
+  margin-top:10px;
+  margin-right: 10em;
+}
+
+.buy button {
+  font-size: 20px;
+}
+
+.toy-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+.toy-list mat-card{
+  width: 250px;
+  font-size: 18px;
+}
+@media (max-width: 900px) {
+  .product-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card,
+  .product-description {
+    width: 100%;
+  }
+}
+.reviews-list {
+  width: 1110px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.breadcrumbs {
+  margin: 20px 0 10px 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #7b1fa2;
+  font-weight: 600;
+  padding-left: 3em;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}

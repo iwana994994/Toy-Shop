@@ -1,0 +1,32 @@
+.about{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+}
+.map{
+    width: 50%;
+    margin-right: 6em;
+    
+}
+.about-shop{
+    margin-left: 6em;
+}
+.button{
+    padding: 2em;
+}
+@media screen and (max-width: 640px) {
+    .button{
+    padding: 0.5em;
+}
+.about-shop{
+    margin-left: 0.2em;
+}
+.about{
+    display:block; 
+}
+.map{
+    width: 100%;
+    margin-right: 0em;
+    
+}
+}

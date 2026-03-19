@@ -1,0 +1,169 @@
+.cart-card {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.cart-table {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.mat-mdc-header-row {
+  background-color: #f5f5f5;
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.total-box {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-box h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.total-box p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: #e3f2fd;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 2em;
+  color: #777;
+}
+
+input{
+  width: 2em;
+}
+.button{
+  display: flex;
+  justify-content: end;
+  margin: 2em;
+}
+.button-buy{
+  font-size: 1.5em;
+}
+img{
+  width: 15%;
+}
+
+@media screen and (max-width: 640px) {
+  .cart-card {
+    max-width: 100%;
+    margin: 16px 8px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .cart-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 12px;
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .mat-mdc-header-cell {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .total-box {
+    margin-top: 16px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .total-box h3 {
+    font-size: 16px;
+  }
+
+  .total-box p {
+    font-size: 18px;
+  }
+
+  .status-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .empty-cart {
+    padding: 24px 10px;
+    font-size: 1.2em;
+  }
+
+  input {
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .button {
+    justify-content: center;
+    margin: 1em 0 0 0;
+  }
+
+  .button-buy {
+    font-size: 1.1em;
+    width: 100%;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  mat-card-title {
+    font-size: 18px;
+  }
+
+  mat-card-subtitle {
+    font-size: 12px;
+  }
+
+  td p {
+    margin: 4px 0;
+    font-size: 12px;
+    white-space: normal;
+  }
+}

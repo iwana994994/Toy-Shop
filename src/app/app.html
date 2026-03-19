@@ -1,0 +1,88 @@
+<mat-toolbar color="primary">
+
+    <a mat-button routerLink="/">
+    <mat-icon>toys</mat-icon>
+      Toy Store</a>
+
+ <span class="spacer"></span>
+
+  <div class="desktop-menu">
+    <a mat-button routerLink="">
+      <mat-icon>beenhere</mat-icon>
+      Top</a>
+    <a mat-button routerLink="home">
+      <mat-icon>home</mat-icon>
+      Home</a>
+    <a mat-button routerLink="about">
+      <mat-icon>info_i</mat-icon>
+      About</a> 
+   
+     @if(authService.getActiveUser()) {
+       <a mat-button routerLink="cart">
+      <mat-icon>shopping_cart</mat-icon>
+      Cart
+    </a>
+  <a mat-button routerLink="user" matButton>
+    <mat-icon fontIcon="account_circle" /> Account
+  </a>
+  <a matButton (click)="doLogout()">
+    <mat-icon fontIcon="logout" /> Logout
+  </a>
+  } @else {
+  <a routerLink="login" matButton>
+    <mat-icon fontIcon="login" /> Login
+  </a>
+  }
+    </div>
+
+    <div class="mobile-menu">
+    <button mat-icon-button [matMenuTriggerFor]="mobileNavMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #mobileNavMenu="matMenu">
+      <button mat-menu-item routerLink="">
+        <mat-icon>beenhere</mat-icon>
+        <span>Top</span>
+      </button>
+
+      <button mat-menu-item routerLink="home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
+      <button mat-menu-item routerLink="about">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </button>
+
+      @if(authService.getActiveUser()) {
+        <button mat-menu-item routerLink="cart">
+          <mat-icon>shopping_cart</mat-icon>
+          <span>Cart</span>
+        </button>
+
+        <button mat-menu-item routerLink="user">
+          <mat-icon>account_circle</mat-icon>
+          <span>Account</span>
+        </button>
+
+        <button mat-menu-item (click)="doLogout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      } @else {
+        <button mat-menu-item routerLink="login">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+      }
+    </mat-menu>
+    </div>
+
+</mat-toolbar>
+<router-outlet />
+
+<footer class="footer">
+  &copy; 2026 Univerzitet Singidunum - Tehnički Fakultet
+</footer>

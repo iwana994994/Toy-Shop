@@ -1,0 +1,98 @@
+@if (toy()) {
+  <nav class="breadcrumbs">
+    <a routerLink="/">Home</a>
+    <span>/</span>
+    <span>{{ toy().name }}</span>
+  </nav>
+
+ 
+    <div class="product-wrapper">
+      <mat-card class="product-card">
+        <img [src]="utils.generateToyImage(toy().toyId)" [alt]="toy().name" />
+      </mat-card>
+
+      <mat-card class="product-description">
+        <mat-card-header>
+          <mat-card-title class="product-title">
+            {{ toy().name }}
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p><strong>Cena:</strong> {{ toy().price }} RSD</p>
+          <p><strong>Opis:</strong> {{ toy().description }}</p>
+          <p><strong>Namenjeno deci:</strong> {{ toy().ageGroup.name }} godina</p>
+          <p><strong>Opis namene:</strong> {{ toy().ageGroup.description }}</p>
+          <p><strong>Datum izrade:</strong> {{ toy().productionDate }}</p>
+          <p><strong>Tip igracke:</strong> {{ toy().type.name }}</p>
+          <p><strong>Opis tipa igracke:</strong> {{ toy().type.description }}</p>
+
+          <div >
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <button
+      mat-icon-button
+      type="button"
+      [disabled]="!canReview() || hasReviewed()"
+      (click)="setRating(star)"
+      (mouseenter)="setHover(star)"
+      (mouseleave)="clearHover()"
+    >
+      <mat-icon class="star">
+        {{ isFilled(star) ? 'star' : 'star_border' }}
+      </mat-icon>
+    </button>
+            }
+          </div>
+
+          <p >Ocena: {{ rating }}</p>
+        </mat-card-content>
+
+        <mat-card-actions class="buy">
+          <button matButton (click)="saveReview() "[disabled]="!canReview() || hasReviewed()">Sačuvaj ocenu</button>
+
+          <button matButton class="button" (click)="addToCart(toy())">
+            <mat-icon>add_shopping_cart</mat-icon>
+            Kupi
+          </button>
+        </mat-card-actions>
+      </mat-card>
+       
+  
+     </div>
+    <div class="product-wrapper">
+  <div class="reviews-list">
+    @if (getReviews().length > 0) {
+      @for (review of getReviews(); track review.toyId) {
+        <mat-card class="review-item">
+          <mat-card-content>
+            <p><strong>Product:</strong> {{ review.name }}</p>
+            <p><strong>User:</strong> {{ review.userEmail }}</p>
+            
+
+            <div class="review-stars">
+              @for (star of [1, 2, 3, 4, 5]; track star) {
+                <mat-icon class="star">
+                  {{ star <= review.rating ? 'star' : 'star_border' }}
+                </mat-icon>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    } @else {
+      <mat-card class="reviews-card">
+        <mat-card-content>
+          <p>Nema recenzija.</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</div>
+
+  
+ 
+} @else {
+<div class="loading">
+  <p><strong>Loading product</strong></p><mat-spinner></mat-spinner>
+</div>
+}

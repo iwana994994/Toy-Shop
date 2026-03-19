@@ -1,0 +1,193 @@
+.home-component {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.search-component{
+  width: 250px;
+  flex: 0 0 1;
+}
+.list-component{
+  flex:1;
+}
+.list-component h2{
+  justify-content: center;
+  text-align: center;
+}
+.toy-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+  
+}
+
+.toy-list mat-card {
+  width: 250px;
+  font-size: 16px;
+}
+
+.toy-list mat-card-title {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+
+
+}
+
+
+
+.button {
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.search-sort{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-left: 20em;
+  margin-right: 5em;
+}
+.search input{
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-title {
+  text-align: center;
+  width: 100%;
+}
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 55%;
+  margin-bottom: 30px;
+}
+
+.toy-slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 10px 40px;
+}
+
+.toy-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.toy-card {
+  min-width: 250px;
+  max-width: 250px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 2;
+  background: white;
+  border-radius: 50%;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+.action-button{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile-filter {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .home-component {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .search-component {
+    display: none;
+  }
+
+  .mobile-filter {
+    display: block;
+  }
+
+  .search-sort {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .search {
+    display: flex;
+    flex: 1;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .search input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .actions-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .list-component {
+    width: 100%;
+  }
+
+  .toy-list {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .toy-list mat-card {
+    width: 160px;
+    font-size: 13px;
+  }
+
+  .toy-list mat-card-title {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  mat-card-content p {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .action-button {
+    justify-content: space-around;
+  }
+
+  .button {
+    min-width: auto;
+  }
+ 
+}

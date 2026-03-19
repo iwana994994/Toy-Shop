@@ -1,0 +1,62 @@
+.user-card {
+  width: 360px;
+ 
+}
+
+
+.user-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: flex-center;
+   padding: 1em;
+ 
+}
+
+.user-details {
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: start;
+}
+
+.user-img {
+  border-radius: 16px;
+}
+
+
+
+.title {
+  padding: 0.5em;
+}
+
+img{
+  width: 20%;
+
+}
+.user-card-recommended {
+  width: 360px;
+  max-height: 521px;
+  overflow-y: auto;
+ 
+}
+.toy-card-recomend{
+  padding: 0.5em;
+  margin: 0.2em;
+}
+@media screen and (max-width: 640px) {
+  .user-wrapper {
+  display:block;
+  flex-wrap: nowrap;
+  
+  justify-content: center;
+  align-items: flex-center;
+   padding: 1em;
+ 
+}
+}

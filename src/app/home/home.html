@@ -1,0 +1,109 @@
+ @if (toys()) {
+ <div class="search-sort">
+ <div class="search">
+ <input type="text" name="searchText" [(ngModel)]="text" placeholder="Pretraga po nazivu ili opisu">
+  <button matButton (click)="search()">Pretraži</button>
+  </div>
+<div class="sort">
+<button mat-icon-button [matMenuTriggerFor]="sortMenu" >
+  <mat-icon>sort</mat-icon>
+</button>
+
+<mat-menu #sortMenu="matMenu" >
+  <button mat-menu-item (click)="sortAsc()">
+    <mat-icon>arrow_downward</mat-icon>
+    Najniža cena
+  </button>
+
+  <button mat-menu-item (click)="sortDesc()">
+    <mat-icon>arrow_upward</mat-icon>
+    Najviša cena
+  </button>
+</mat-menu>
+</div>
+</div>
+
+<div class="mobile-filter">
+  <button mat-icon-button [matMenuTriggerFor]="filterMenu">
+    <mat-icon>filter_list</mat-icon>
+  </button>
+</div>
+
+<mat-menu #filterMenu="matMenu">
+  <div (click)="$event.stopPropagation()">
+    <app-search
+      [ratingOptions]="getRating()"
+      [types]="getTypes()"
+      [age]="getAgeGroup()"
+      [Group]="getTargetGroup()"
+      (filtersChanged)="onFiltersChanged($event)">
+    </app-search>
+  </div>
+</mat-menu>
+
+<div class="home-component">
+  
+  <div class="search-component">
+    <app-search
+   [ratingOptions]="getRating()"
+   [types]="getTypes()"
+   [age]="getAgeGroup()"
+   [Group]="getTargetGroup()"
+  (filtersChanged)="onFiltersChanged($event)">
+</app-search>
+  </div>
+
+
+
+<div class="list-component">
+
+  @if (selectedType !== '') {
+  <h1>{{ selectedType }}</h1>
+}
+
+  @if (toys().length > 0) {
+
+    <div class="toy-list">
+      @for (t of filteredToys(); track t.toyId) {
+
+        <mat-card appearance="outlined" [routerLink]="['/product', t.toyId]" >
+       
+
+         <img [src]="utils.generateToyImage(t.toyId)" [alt]="t.name" />
+            <mat-card-title>{{ t.name }}</mat-card-title>
+
+          <mat-card-content>
+            <p><strong>Opis: </strong> {{ t.description }}</p>
+            <p><strong>{{ t.price }} RSD</strong></p>
+          </mat-card-content>
+          <div class="action-button">
+             <button matButton type="button"  class="button"  (click)="addToCart(t); $event.stopPropagation() ">
+           <mat-icon>add_shopping_cart</mat-icon>
+         </button>
+
+        <button
+  matButton
+  type="button"
+  class="button"
+  (click)="toggleFavorite( t.toyId, $event); $event.stopPropagation()"
+>
+  <mat-icon>{{ favorites[ t.toyId] ? 'favorite' : 'favorite_border' }}</mat-icon>
+</button>
+        </div>
+
+</mat-card>
+      }
+    </div>
+  }
+
+  @if (toys().length === 0) {
+    <p>Nema igračaka.</p>
+  }
+</div>
+
+</div>
+  }
+ @else{
+  <div class="loading">
+  <p><strong>Loading product</strong></p><mat-spinner></mat-spinner>
+</div>}
